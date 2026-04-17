@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Inventario - Supermercado</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #1f2937, #111827);
+        }
+
+        header {
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .menu {
+            list-style: none;
+            padding: 10px;
+            margin: 0;
+            text-align: center;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .menu > li {
+            display: inline-block;
+            position: relative;
+            margin: 0 15px;
+        }
+
+        .menu a {
+            color: #e5e7eb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #111827;
+            padding: 10px;
+            border-radius: 8px;
+            list-style: none;
+            min-width: 150px;
+            z-index: 1000;
+        }
+
+        .submenu li {
+            margin: 5px 0;
+        }
+
+        .submenu li a {
+            display: block;
+            padding: 8px;
+            color: white;
+        }
+
+        .submenu li a:hover {
+            background: #22c55e;
+            border-radius: 5px;
+        }
+
+        .dropdown:hover .submenu {
+            display: block;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 12px;
+            max-width: 800px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Sistema de Inventario para Supermercado</h1>
+</header>
+
+<ul class="menu">
+    <li><a href="#inicio">Inicio</a></li>
+
+    <li class="dropdown">
+        <a href="#">Nosotros</a>
+        <ul class="submenu">
+            <li><a href="OBJETIVO.html">Objetivo</a></li>
+        </ul>
+    </li>
+
+    <li class="dropdown">
+        <a href="#">Inventario</a>
+        <ul class="submenu">
+            <li><a href="catalogo.html">Catálogo</a></li>
+            <li><a href="SECCION1.html">Operaciones</a></li>
+        </ul>
+    </li>
+</ul> <!-- ✅ CIERRE CORRECTO DEL MENÚ -->
+
+<section id="inicio">
+    <div class="card">
+        <h2>Descripción</h2>
+        <p>
+            Este sistema web permite administrar el inventario de un supermercado,
+            controlando entradas, salidas y caducidad de productos de manera digital.
+        </p>
+    </div>
+</section>
+
+<section id="equipo">
+    <div class="card">
+        <h2>Equipo</h2>
+        <ul>
+            <li>JOSE ANGEL VILLAGOMEZ OCTAVIANO</li>
+            <li>ANGEL ABRAHAM PRIETO GARCIA</li>
+            <li>ABRAHAM MONFIL RANGEL</li>
+            <li>EZRA ISAI LOZANO DE JESUS</li>
+            <li>KARLA DANIELA MEDINA MACIAS</li>
+        </ul>
+    </div>
+</section>
+
+<footer>
+    <p>UNITEC - Ingeniería en Sistemas Computacionales</p>
+</footer>
+
+</body>
+</html>

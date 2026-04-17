@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPERACIONES</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #1f2937, #111827);
+            color: #333;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin: 40px auto;
+            border-radius: 12px;
+            max-width: 800px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background: #22c55e;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #16a34a;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background: #111827;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f3f4f6;
+        }
+
+        .volver {
+            display: block;
+            margin: 30px auto;
+            background: #2d8cf0;
+            padding: 10px 18px;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            transition: 0.2s;
+            text-align: center;
+            width: fit-content;
+        }
+
+        .volver:hover {
+            background: #1a6ed8;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Gestión de Inventario</h2>
+
+    <input type="text" id="producto" placeholder="Producto">
+    <input type="number" id="cantidad" placeholder="Cantidad">
+    <input type="number" id="precio" placeholder="Precio">
+    <button type="button" onclick="agregarProducto()">Agregar</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="lista"></tbody>
+    </table>
+</div>
+
+<a href="pagina.html" class="volver">⬅ Volver a la tienda</a>
+
+<script>
+function agregarProducto() {
+    let producto = document.getElementById("producto").value.trim();
+    let cantidad = document.getElementById("cantidad").value;
+    let precio = document.getElementById("precio").value;
+
+    if (producto === "" || cantidad === "" || precio === "") {
+        alert("Llena todos los campos");
+        return;
+    }
+
+    cantidad = parseInt(cantidad);
+    precio = parseFloat(precio);
+
+    let tabla = document.getElementById("lista");
+    let fila = document.createElement("tr");
+
+    let tdProducto = document.createElement("td");
+    tdProducto.textContent = producto;
+
+    let tdCantidad = document.createElement("td");
+    tdCantidad.textContent = cantidad;
+
+    let tdPrecio = document.createElement("td");
+    tdPrecio.textContent = precio.toFixed(2);
+
+    let tdAcciones = document.createElement("td");
+    let btnEliminar = document.createElement("button");
+    btnEliminar.textContent = "Eliminar";
+    btnEliminar.onclick = function() {
+        fila.remove();
+    };
+
+    tdAcciones.appendChild(btnEliminar);
+
+    fila.appendChild(tdProducto);
+    fila.appendChild(tdCantidad);
+    fila.appendChild(tdPrecio);
+    fila.appendChild(tdAcciones);
+
+    tabla.appendChild(fila);
+
+    document.getElementById("producto").value = "";
+    document.getElementById("cantidad").value = "";
+    document.getElementById("precio").value = "";
+}
+</script>
+
+</body>
+</html>
